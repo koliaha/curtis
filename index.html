@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+        // function myclick()
+    </script>
+    <style>
+        #Stage {
+            cursor: pointer;
+            width: 480px;
+            height: 320px;
+            z-index: 1000;
+        }
+    </style>
+    <title>curtis html5</title>
+</head>
+
+<body>
+    <div id="Stage" class="d-none" width="480" height="320"
+        style="position: absolute; left: 0; top: 0; background-color:rgba(255, 255, 255, 0.00);"></div>
+    <div class="container">
+        <img src="./assets/bg_second.png" alt="" class="animate__animated inv bg__second">
+        <img src="./assets/bg_first.png" alt="" class="animate__animated bg__first">
+        <img src="./assets/message_top.png" alt="" class="animate__animated frame0 inv message__top messageBtn">
+        <img src="./assets/message_mid.png" alt="" class="animate__animated frame0 inv message__mid messageBtn">
+        <img src="./assets/message_bot.png" alt="" class="animate__animated frame0 inv message__bot messageBtn">
+        <img src="./assets/header_first.svg" alt="" class="animate__animated frame0 inv header__first">
+        <img src="./assets/disclaimer_bot.svg" alt="" class="animate__animated  disclaimer__bot">
+        <img src="./assets/header_second.svg" alt="" class="animate__animated inv header__second">
+        <img src="./assets/header_third.svg" alt="" class="animate__animated inv header__third">
+        <img src="./assets/eclipse.svg" alt="" class=" final__frame inv eclipse">
+        <img src="./assets/shadow.svg" alt="" class="animate__animated inv  final__frame shadow">
+        <img src="./assets/header_fourth.svg" alt="" class="animate__animated inv  final__frame header__fourth">
+        <img src="./assets/notebook.png" alt="" class="  final__frame inv notebook">
+        <img src="./assets/logo.svg" alt="" class="animate__animated inv  final__frame logo">
+        <div class="animate-finger">
+            <div class="finger">
+                <div class="finger-center"></div>
+                <img src="./assets/finger.svg" alt="">
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+    <script>
+        let counter = 0
+
+        $('#Stage').click(() => {
+            // e.preventDefault();
+            window.location =
+                "https://promo.curtistea.com/?utm_source=gonet_game&utm_medium=cpm&utm_campaign=curtis_promo_autumn_22&utm_term=GTL";
+        })
+        const frame3 = () => {
+            $('.bg__second').addClass('inv')
+            $('.header__third').addClass('inv')
+            $('.logo').addClass('animate__fadeIn')
+            $('.logo').removeClass('inv')
+            $('.notebook').addClass('final__roll')
+            $('.notebook').removeClass('inv')
+            $('.eclipse').addClass('final__roll')
+            $('.eclipse').removeClass('inv')
+            setTimeout(() => {
+                $('.header__fourth').addClass('animate__fadeInUp')
+                $('.header__fourth').removeClass('inv')
+            }, 500);
+
+        }
+        const frame2 = () => {
+            $('.header__second').addClass('inv')
+            $('.bg__first').addClass('inv')
+            $('.bg__second').addClass('bg__animation')
+            $('.bg__second').removeClass('inv')
+            setTimeout(() => {
+                $('.header__third').addClass('animate__fadeInUp')
+                $('.header__third').removeClass('inv')
+                setTimeout(() => {
+                    frame3()
+                }, 3000);
+            }, 800);
+        }
+        const frame1 = () => {
+            $('.animate-finger').addClass('d-none')
+            $('#Stage').removeClass('d-none')
+            $('.frame0').addClass('inv')
+            $('.header__second').addClass('animate__fadeInUp')
+            $('.header__second').removeClass('inv')
+            setTimeout(() => {
+                frame2()
+            }, 1000);
+        }
+        const frame0 = () => {
+            $('.message__top').addClass('animate__fadeInUp')
+            $('.message__top').removeClass('inv')
+            setTimeout(() => {
+                $('.message__mid').addClass('animate__fadeInUp')
+                $('.message__mid').removeClass('inv')
+                setTimeout(() => {
+                    $('.message__bot').addClass('animate__fadeInUp')
+                    $('.message__bot').removeClass('inv')
+                    setTimeout(() => {
+                        $('.header__first').addClass('animate__fadeInUp')
+                        $('.header__first').removeClass('inv')
+                        // setTimeout(() => {
+                        //     frame1()
+                        // }, 12500);
+                    }, 1500);
+                }, 1100);
+            }, 1100);
+        }
+        $(() => {
+            // Handler for .ready() called.
+            frame0()
+
+        });
+        const messagebtn = document.querySelectorAll('.messageBtn')
+        const animetefinger = document.querySelector('.animate-finger')
+        let timer
+        messagebtn.forEach((el) => {
+            el.addEventListener("click", (event) => {
+                el.classList.add("animate__fadeOutLeft")
+                el.classList.remove("inv")
+                counter += 1
+                if (el.classList.contains('message__top')) {
+                    $('.animate-finger').addClass('d-none')
+                }
+                if (counter == 3) {
+                    setTimeout(() => {
+                        clearTimeout(timer)
+                        frame1()
+                    }, 1000);
+                }
+                clearTimeout(timer)
+                runTimer()
+            })
+        })
+        const runTimer = () => {
+            timer = window.setTimeout(
+                () => {
+                    frame1()
+                }, 9000);
+        }
+        // runTimer();
+        
+        animetefinger.addEventListener("click", (event) => {
+            messagebtn[0].classList.add("animate__fadeOutLeft")
+            messagebtn[0].classList.remove("inv")
+            counter += 1
+            if (messagebtn[0].classList.contains('message__top')) {
+                $('.animate-finger').addClass('d-none')
+            }
+            if (counter == 3) {
+                setTimeout(() => {
+                    frame1()
+                }, 1000);
+            }
+        })
+    </script>
+</body>
+
+</html>

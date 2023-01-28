@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+html,
+body {
+  width: 480px;
+  height: 320px;
+  position: relative;
+}
+
+.inv {
+  visibility: hidden;
+  /* display: none; */
+}
+
+.container {
+  width: 480px;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg__first,
+.bg__second,
+.eclipse {
+  /* height: 470px; */
+  width: 100%;
+  right: 0;
+  top: 0;
+}
+
+.header__first {
+  height: 56px;
+  width: 235px;
+  left: 120px;
+  bottom: 45px;
+}
+
+.message__top {
+  /* height: 54px; */
+  width: 193px;
+  left: 110px;
+  top: 35px;
+}
+
+.message__mid {
+  /* height: 50px; */
+  width: 193px;
+  right: 52px;
+  top: 103px;
+}
+
+.message__bot {
+  /* height: 50px; */
+  width: 193px;
+  left: 83px;
+  top: 166px;
+}
+
+.disclaimer__bot {
+  height: 36px;
+  width: 355px;
+  left: 60px;
+  bottom: 10px;
+  z-index: 1000;
+}
+
+.header__second {
+  height: 28px;
+  width: 138px;
+  left: 170px;
+  bottom: 55px;
+}
+
+.header__third {
+  height: 56px;
+  width: 430px;
+  left: 30px;
+  bottom: 40px;
+}
+
+.shadow {
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+.header__fourth {
+  width: 237px;
+  height: 112px;
+  left: 17px;
+  top: 105px;
+}
+
+.notebook {
+  height: 228px;
+  width: 213px;
+  right: 40px;
+  top: 35px;
+}
+
+.logo {
+  height: 37px;
+  width: 90px;
+  left: 90px;
+  top: 25px;
+}
+
+.eclipse {
+  top: 0%;
+  right: -10%;
+  width: 75%;
+}
+
+.final__roll {
+  animation: finalRoll;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  -webkit-animation: finalRoll;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+  /* animation: name duration timing-function delay iteration-count direction forwards; */
+}
+
+.bg__animation {
+  animation: bgAnima;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  -webkit-animation: bgAnima;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes finalRoll {
+  0% {
+    transform: scale(0.85) rotate(330deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes bgAnima {
+  0% {
+    transform: scale(1.07);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-finger{
+  position: absolute;
+  right: 157px;
+  top: 38px;
+  width: 66.49px;
+  height: 66.49px;
+  background: url('./assets/circle.svg');
+  background-size: cover;
+  opacity: 0;
+  animation: fadeIn 3s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+.finger {
+  width: 100%;
+  height: 100%;
+
+  animation: bgAnimaZoom 2.5s infinite;
+}
+
+.finger-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  opacity: 0.5;
+  width: 25.96px;
+  height: 25.96px;
+  border-radius: 50%;
+  
+
+}
+
+.finger img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+@keyframes bgAnimaZoom {
+  0% {
+    transform: scale(1.07);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.07);
+  }
+}
+.handPush {
+  width: 50%;
+  opacity: 0;
+  animation: fadeIn 3s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.handPush img {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+.d-none{
+  display: none;
+}
